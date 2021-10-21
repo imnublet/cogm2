@@ -18,7 +18,8 @@ pip install requirements.txt
 ```
 
 ## Usage
-To run the ACT-R model that solves Hanoi.
+To run the ACT-R model that solves Hanoi you can run the command below in the shell.
+Every time you run the model the total steps it takes to solve the problem gets saved in results.txt
 ```bash
 python myModel.py
 ```
