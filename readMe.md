@@ -14,7 +14,7 @@ conda install --file requirements.txt
 Using pip:
 ```bash
 pip install ccmsuite/.
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage

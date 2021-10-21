@@ -1,5 +1,4 @@
 import ccm
-import numpy as np
 from ccm.lib.actr import *
 
 
