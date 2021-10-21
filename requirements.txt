@@ -1,0 +1,7 @@
+ccmsuite=0.2=pypi_0
+numpy=1.16.5=py27hacdab7b_0
+numpy-base=1.16.5=py27h6575580_0
+numpydoc=0.9.1=py_0
+matplotlib=2.2.5=pypi_0
+matplotlib-base=2.2.4=py27h31f9439_1
+

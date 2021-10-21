@@ -12,7 +12,7 @@ class Hanoi_env(ACTR):
     hand = Buffer()
     steps = Buffer()
 
-    # Initialize the towers, hand and amount of steps
+
     def init():
         A.set('top:3 mid:2 bot:1')
         B.set('top:None mid:None bot:None')
@@ -20,26 +20,24 @@ class Hanoi_env(ACTR):
         hand.set('disc:None')
         steps.set('step:0')
 
-    # If all discs are placed in tower C the program ends
     def hanoi_finished(C='top:3 mid:2 bot:1'):
         A.clear()
         B.clear()
         C.clear()
         hand.clear()
         total_steps = steps.__getitem__('step')
-        f = open("results.txt", "a")
-        f.write(total_steps+'\n')
-        f.close()
         print 'finished'
         print 'this took', total_steps, 'steps to complete'
+        f = open("results.txt", "a")
+    
+        f.write(total_steps+'\n')
+        f.close()
 
-    # Pickup a disc from tower A if it contains a disc and place it in hand
     def pick_from_A(hand='disc:None'):
         step_int = int(steps.__getitem__('step'))
         steps.modify(step=str(step_int+1))
         if A.__getitem__('top') != 'None':
             hand.modify(disc=str(A.__getitem__('top')))
-            A.modify(top='None')
         elif A.__getitem__('mid') != 'None':
             hand.modify(disc=A.__getitem__('mid'))
             A.modify(mid='None')
@@ -47,7 +45,7 @@ class Hanoi_env(ACTR):
             hand.modify(disc=A.__getitem__('bot'))
             A.modify(bot='None')
 
-    # Pickup a disc from tower B if it contains a disc and place it in hand
+
     def pick_from_B(hand='disc:None'):
         step_int = int(steps.__getitem__('step'))
         steps.modify(step=str(step_int+1))
@@ -61,7 +59,6 @@ class Hanoi_env(ACTR):
             hand.modify(disc=B.__getitem__('bot'))
             B.modify(bot='None')
 
-    # Pickup a disc from tower B if it contains a disc and place it in hand
     def pick_from_C(hand='disc:None'):
         step_int = int(steps.__getitem__('step'))
         steps.modify(step=str(step_int+1))
@@ -76,7 +73,7 @@ class Hanoi_env(ACTR):
             C.modify(bot='None')
 
 
-    # Move a disc from hand to tower A if possible
+
     def move_to_A(hand='disc:?d', A='top:?x mid:?y bot:?z'):
         step_int = int(steps.__getitem__('step'))
         steps.modify(step=str(step_int+1))
@@ -91,7 +88,7 @@ class Hanoi_env(ACTR):
                 A.modify(top=str(d))
                 hand.modify(disc='None')
 
-    # Move a disc from hand to tower B if possible
+
     def move_to_B(hand='disc:?d', B='top:?x mid:?y bot:?z'):
         step_int = int(steps.__getitem__('step'))
         steps.modify(step=str(step_int+1))
@@ -106,7 +103,6 @@ class Hanoi_env(ACTR):
                 B.modify(top=str(d))
                 hand.modify(disc='None')
 
-    # Move a disc from hand to tower C if possible
     def move_to_C(hand='disc:?d', C='top:?x mid:?y bot:?z'):
         step_int = int(steps.__getitem__('step'))
         steps.modify(step=str(step_int+1))
@@ -125,6 +121,10 @@ class Hanoi_env(ACTR):
 #Run model
 model=Hanoi_env()
 
+# model.A.set('top:3 mid:2 bot:1')
+# model.B.set('top:None mid:None bot:None')
+# model.C.set('top:None mid:None bot:None')
+# model.hand.set('disc:None')
 ccm.log_everything(model)
 model.A.set('top:3 mid:2 bot:1')
 model.run()
