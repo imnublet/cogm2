@@ -1,6 +1,6 @@
 numpy==1.16.5
 numpydoc==0.9.1
 matplotlib==2.2.5
-ccmsuite==0.2
+# ccmsuite==0.2
 certifi==2020.6.20
 
