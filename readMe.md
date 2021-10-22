@@ -2,9 +2,12 @@
 
 ## Installation
 
-In order to run the program python 2 is required.
-Installing the required packages can be achieved in two ways:
+In order to run the program python 2 and ccmsuite is required. ccm can be installed in the following way:
 
+
+```bash
+git clone https://github.com/tcstewar/ccmsuite
+```
 
 Using a conda env (in python 2 environment):
 ```bash
